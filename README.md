@@ -12,49 +12,49 @@ I cleaned and performed some calculations of the datasets on Microsoft Excel, be
 
 tidyverse is for data import and wrangling 
 
-```{r}
+```r
 install.packages("tidyverse")
 ```
 
-```{r}
+```r
 library("tidyverse")
 ```
 
 readr is used for reading rectangular data e.g csv file
 
-```{r}
+```r
 install.packages("readr")
 ```
-```{r}
+```r
 library("readr")
 ```
 
 ggplot is for visualizations
-```{r}
+```r
 install.packages("ggplot2")
 ```
-```{r}
+```r
 library(ggplot2) 
 ```
 
 libridate for date functions
-```{r}
+```r
 install.packages("libridate")
 ```
-```{r}
+```r
 library("libridate")
 ```
 
 dplyr help complete some data manipulation tasks
-```{r}
+```r
 install.packages("dplyr")
 ```
-```{r}
+```r
 library("dplyr")
 ```
 
 works with functions and vectors to help with coding
-```{r}
+```r
 install.packages("purrr")
 library("purrr")
 ```
@@ -64,7 +64,7 @@ library("purrr")
 I selected my working directory using the session tab.
 
 getwd() will wisplay my working directory
-```{r}
+```r
 getwd()
 ```
 # 1. COLLECT DATA 
@@ -73,7 +73,7 @@ getwd()
  
  July 2020 dataset
  
-```{r}
+```r
 library(readr)
 cyclistic_bike_share_july_2020 <- read_csv("cyclistic_bike_share_july_2020.csv")
 View(cyclistic_bike_share_july_2020)
@@ -82,7 +82,7 @@ View(cyclistic_bike_share_july_2020)
 
 August 2020 dataset
 
-```{r}
+```r
 library(readr)
 cyclistic_bike_share_august_2020 <- read_csv("cyclistic_bike_share_august_2020.csv")
 View(cyclistic_bike_share_august_2020)
@@ -90,7 +90,7 @@ View(cyclistic_bike_share_august_2020)
 
 September 2020 dataset
 
-```{r}
+```r
 library(readr)
 cyclistic_bike_share_sept_2020 <- read_csv("cyclistic_bike_share_sept_2020.csv")
 View(cyclistic_bike_share_sept_2020)
@@ -105,7 +105,7 @@ I converted ride_id and rideable_type to character in all datasets so that they 
 Stacked cyclistic data from July, August, September 2020 to get Q3 data.
 I used bind_rows function to merge the data from July,August, September 2020 to get Q3 dataframe.
        
-```{r}
+```r
 cyclistic_bike_share_Q3_2020 <- bind_rows(cyclistic_bike_share_july_2020,cyclistic_bike_share_august_2020,cyclistic_bike_share_sept_2020)
 View(cyclistic_bike_share_Q3_2020)
 ```
@@ -116,63 +116,63 @@ View(cyclistic_bike_share_Q3_2020)
 I installed the 'skimr' and 'janitor' packages for data cleaning.
 skimr helps to summarize data
 
-```{r}
+```r
 install.packages("skimr")
 library("skimr")
 ```
 
 janitor helps in data cleaning
 
-```{r}
+```r
 install.packages("janitor")
 library("janitor")
 ```
 
 
 ## Inspect new Q3 table
-```{r}
+```r
 colnames(cyclistic_bike_share_Q3_2020)
 ```
 
 ## number of rows in Q3 
-```{r}
+```r
 nrow(cyclistic_bike_share_Q3_2020)
 ```
 
 ## dimensions of the q3 dataframe
-```{r}
+```r
 dim(cyclistic_bike_share_Q3_2020)
 ```
 
 ## see list of columns and data types in q3 dataset
-```{r}
+```r
 str(cyclistic_bike_share_Q3_2020)
 ```
 
 
 ## Summary of Q3 data
 
-```{r}
+```r
 summary(cyclistic_bike_share_Q3_2020)
 ```
 
 # Covert ride_length to numeric to run claculations on the data
 
-```{r}
+```r
 is.factor(cyclistic_bike_share_Q3_2020$ride_length)
 ```
 
-```{r}
+```r
 cyclistic_bike_share_Q3_2020$ride_length <-as.numeric(as.character(cyclistic_bike_share_Q3_2020$ride_length))
 ```
 
 To confirm if the ride_length column has changed to numeric run this code
 
-```{r}
+```r
 is.numeric(cyclistic_bike_share_Q3_2020$ride_length)
 ```
 
-```{r}
+```r
 cyclistic_bike_share_Q3_2020_2 <-cyclistic_bike_share_Q3_2020_complete = na.omit(cyclistic_bike_share_Q3_2020$ride_length)
 ```
 
@@ -180,23 +180,23 @@ cyclistic_bike_share_Q3_2020_2 <-cyclistic_bike_share_Q3_2020_complete = na.omit
 
 Install the tidyr package to help remove NA values in the ride_length column
 
-```{r}
+```r
 install.packages("tidyr")
 library("tidyr")
 ```
 
-```{r}
+```r
 cyclistic_bike_share_Q3_2020_2 <- cyclistic_bike_share_Q3_2020 %>% drop_na(ride_length)
 ```
 
 
 ## arrange q3 data in ascending order based on the time the ride started.
 
-```{r}
+```r
 library("dplyr")
 ```
 
-```{r}
+```r
 cyclistic_bike_share_Q3_2020_2 <- arrange(cyclistic_bike_share_Q3_2020_2, started_at)
 ```
 
@@ -205,57 +205,56 @@ cyclistic_bike_share_Q3_2020_2 <- arrange(cyclistic_bike_share_Q3_2020_2, starte
 
 ## mean ride_length (all figures in seconds)
 
-```{r}
+```r
 mean(cyclistic_bike_share_Q3_2020_2$ride_length)
 ```
 **1587.013**
 
 ## average ride length in seconds
-```{r}
+```r
 median(cyclistic_bike_share_Q3_2020_2$ride_length)
 ```
 **953**
 
 ## longest ride in seconds 
-```{r}
+```r
 max(cyclistic_bike_share_Q3_2020_2$ride_length)
 ```
 **86389**
 
 ## Shortest ride in seconds ignoring the missing values
 
-```{r}
+```r
 min(cyclistic_bike_share_Q3_2020_2$ride_length)
 ```
 **0**
 
 ##compare member and casual riders
 
-```{r}
+```r
 aggregate(cyclistic_bike_share_Q3_2020_2$ride_length ~ cyclistic_bike_share_Q3_2020_2$member_casual, FUN =mean)
 ```
 
-```{r}
+```r
 aggregate(cyclistic_bike_share_Q3_2020_2$ride_length ~ cyclistic_bike_share_Q3_2020_2$member_casual, FUN = median)
 ```
-```{r}
+```r
 aggregate(cyclistic_bike_share_Q3_2020_2$ride_length ~ cyclistic_bike_share_Q3_2020_2$member_casual, FUN = max)
 ```
-```{r}
+```r
 aggregate(cyclistic_bike_share_Q3_2020_2$ride_length ~ cyclistic_bike_share_Q3_2020_2$member_casual, FUN = max)
 ```
 
 ##Average ride time for members and casual riders by day of the week
 
-```{r}
+```r
 aggregate(cyclistic_bike_share_Q3_2020_2$ride_length ~ cyclistic_bike_share_Q3_2020_2$member_casual+cyclistic_bike_share_Q3_2020_2$day_of_week, FUN = mean)
 ```
 
 
-
 #Export q3 dataset to desktop folder csv files for further analysis and visualizations in Tableau 
 
-```{r}
+```r
 write.csv(cyclistic_bike_share_Q3_2020_2, "C:\\Users\\emily\\Desktop\\csv files\\cyclistic_bike_share_Q3_2020.csv", row.names = FALSE)
 ```
 
