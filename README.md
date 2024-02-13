@@ -254,17 +254,40 @@ write.csv(cyclistic_bike_share_Q3_2020_2, "C:\\Users\\emily\\Desktop\\csv files\
 
 # 5. VISUALIZATIONS.
 
-I created vusualizations in Tableau.
+I created visualizations in Tableau.
 
-1. line graph showing number of rides 
+1. Bar graph showing total number of rides for member and casual riders.
+
+
+![Total no  of rides](https://github.com/emychela/Data_analysis_using_R_and_Tableau/assets/150371945/3a2a3a81-27ce-4ee2-8eff-9d519639a33c)
+
+
+2. Line graph showing total number of rides for users by day of the week.
+
 ![No  of rides for users by day of the week](https://github.com/emychela/Data_analysis_using_R_and_Tableau/assets/150371945/b31386ec-7615-4ec4-a286-56aa908d5052)
 
 
+5. Line graph showing average ride length for member and casual riders by day of the week.
 
 ![avg  ride length by day of week](https://github.com/emychela/Data_analysis_using_R_and_Tableau/assets/150371945/c8b29d09-16be-4dcc-ab21-29b9290fa69f)
 
 
+4. Bar graph showing average ride length for member and casual riders.
+ 
 ![avg  ride length for users](https://github.com/emychela/Data_analysis_using_R_and_Tableau/assets/150371945/74238cb4-167e-4cf0-8c7e-4b0a88d40af9)
+
+
+# FINDINGS
+
+1. Data shows that in Q3, member riders had the highest number of rides 912,632 and casual riders had 786,003.
+2. Casual riders used bikes for a lengthy period of time compared to meber riders. Average ride length for casual riders was 2302 seconds i.e 38 minutes:22 seconds, member riders had an average ride legth of 971 secinds i.e 16 minutes:11 seconds.
+3. Casual riders had the highest number of rides on Saturday 176,201 rides.
+4. Suprises the data revealed were:
+    - Casual riders used bikes longer compared to member riders despite the fact that members had the highest number of rides.
+    - Saturday had the highest number of rides 176,201 and this was from casual riders.
+    - Member riders use bikes more on weekdays and casual riders use bikes more on weekends.
+      
+# RECOMMENDATIONS.
 
 
 
